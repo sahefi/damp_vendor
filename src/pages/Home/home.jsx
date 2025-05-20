@@ -3,6 +3,8 @@ import React from 'react';
 import SliderComponent from './components/slider';
 import Kategori from './components/kategori';
 import Rekomendasi from './components/rekomendasi';
+import Testimoni from './components/testimoni';
+import VendorList from './components/vendor';
 
 
 const Home = () => {
@@ -32,21 +34,16 @@ const Home = () => {
 
 
     return (
-        <div style={{ paddingTop: 20 }}>
-            <div style={{ marginBottom: 40 }}>
-                <SliderComponent listSlider={mockSliderData} loading={false} />
-            </div>
-            <div style={{ marginBottom: 40 }}>
+        <div style={{ paddingTop: 20, display: 'flex', flexDirection: 'column', gap: 40 }}>
+            <SliderComponent listSlider={mockSliderData} loading={false} />
             <Kategori
                 listKategori={dummyKategori}
                 loading={false}
                 dummyArray={dummyArray}
             />
-            </div>
-            <div style={{ marginBottom: 40 }}>
-            <Rekomendasi/>
-            </div>
-
+            <Rekomendasi />
+            <Testimoni/>
+            <VendorList/>
         </div>
     );
 };

@@ -105,7 +105,7 @@ const Rekomendasi = () => {
                                 }}
                             />
                             <Card.Body>
-                                <Card.Title className="fs-6">{venue.title}</Card.Title>
+                                <Card.Title className="fs-18">{venue.title}</Card.Title>
                                 <div className="text-muted mb-2">{venue.organizer}</div>
                                 <div className="text-decoration-line-through text-muted small">
                                     {venue.originalPrice}

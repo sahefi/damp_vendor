@@ -66,10 +66,68 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
-
+body, html {
+  overflow-x: hidden;
+} 
 
 .swiper-button-next,
 .swiper-button-prev {
     color: white !important;
 }
 
+
+.custom-carousel .react-multiple-carousel__arrow {
+  z-index: 2;
+  background-color: #dc3545 !important; /* Merah seperti Bootstrap Danger */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.custom-carousel .react-multiple-carousel__arrow--left {
+  left: -25px;
+}
+
+.custom-carousel .react-multiple-carousel__arrow--right {
+  right: -25px;
+}
+
+.testimonial-card {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  border: none;
+}
+
+.testimonial-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.custom-red-button {
+  background-color: #C5203C !important;
+  border-color: #C5203C !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: white;
+}
+
+.custom-red-button:focus,
+.custom-red-button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.no-focus:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.custom-dropdown-item:focus,
+.custom-dropdown-item:active,
+.custom-dropdown-item:hover {
+  background-color: #f8f9fa !important; /* abu-abu terang */
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  color: #333 !important;
+}
