@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const venues = [
     {
@@ -44,7 +45,7 @@ const venues = [
     },
 ];
 
-const StarRating = ({ rating }) => {
+const StarRating = ({ rating }) => {    
     const fullStars = Math.floor(rating);
     const halfStar = rating - fullStars >= 0.5;
 
@@ -73,7 +74,7 @@ const cardHoverStyle = {
 };
 
 const Rekomendasi = () => {
-    // State untuk track hover index card (opsional)
+    const navigate = useNavigate();    
     const [hovered, setHovered] = React.useState(null);
 
     return (
@@ -89,6 +90,7 @@ const Rekomendasi = () => {
                 {venues.map((venue) => (
                     <div key={venue.id} className="col-md-3 mb-4">
                         <Card
+                            onClick={() => navigate("/vendor")}
                             className="h-100 shadow-sm rounded-4"
                             style={hovered === venue.id ? {...cardStyle, ...cardHoverStyle} : cardStyle}
                             onMouseEnter={() => setHovered(venue.id)}

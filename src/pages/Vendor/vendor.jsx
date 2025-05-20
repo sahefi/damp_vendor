@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Row, Col, Card, Image, Button } from 'react-bootstrap';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const vendor = {
   name: 'Maniro Wedding Organizer',
@@ -74,6 +75,7 @@ function renderStars(rating) {
 }
 
 export default function VendorProfile() {
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('profile'); // 'profile' | 'tentang' | 'ulasan'
 
   return (
@@ -115,10 +117,12 @@ export default function VendorProfile() {
                   {products.map((product) => (
                     <Col md={4} sm={6} key={product.id}>
                       <Card
+                        onClick={() => navigate('/detail')}
                         className="h-100"
                         style={{
                           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // box shadow halus
                           borderRadius: 10,
+                          cursor:'pointer'
                         }}
                       >
                         <Card.Img
@@ -162,7 +166,7 @@ export default function VendorProfile() {
       </Col>
 
       {/* KONTEN KANAN */}
-      <Col md={3} style={{zIndex:-1 }}>
+      <Col md={3}>
         <Card className="p-3 h-100" style={{ borderRadius: 10 }}>
           <div className="d-flex flex-column align-items-center text-center mb-3">
             <Image
@@ -177,10 +181,10 @@ export default function VendorProfile() {
           <div className="d-flex justify-content-center mb-2">{renderStars(vendor.rating)}</div>
           <small className="text-muted text-center d-block mb-3">{vendor.lastSeen}</small>
 
-          <Button variant="danger" className="mb-2" style={{ width: '100%' }}>
+          <Button className="custom-red-button mb-2" style={{ width: '100%', cursor:'pointer' }} onClick={() => navigate('/chat')}>
             Chat Vendor
           </Button>
-          <Button variant="danger" style={{ width: '100%' }}>
+          <Button className="custom-red-button" style={{ width: '100%' }} >
             Simpan Vendor
           </Button>
 

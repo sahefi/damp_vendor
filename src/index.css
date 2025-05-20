@@ -109,6 +109,7 @@ body, html {
   outline: none !important;
   box-shadow: none !important;
   color: white;
+  cursor: pointer;
 }
 
 .custom-red-button:focus,
