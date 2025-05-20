@@ -19,6 +19,7 @@ const SliderComponent = ({ listSlider = [], loading = false }) => {
     return (
         <Swiper
             style={{
+                zIndex:0,
                 width: '100%',
                 maxWidth: '1100px',
                 margin: '0 auto',

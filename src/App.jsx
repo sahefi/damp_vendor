@@ -13,7 +13,9 @@ function App() {
   return (
     <Router>
       <div>
-        <Header />
+        <div style={{zIndex:999, position:'relative'}}>
+        <Header/>
+        </div>
         <Routes>
           <Route path="/" element={<Home />} />       
           <Route path="/vendor" element={<Vendor />} />          

@@ -74,7 +74,7 @@ export default function Pembayaran() {
             {/* Progress Bar */}
             <Row
                 className="mb-4 justify-content-center"
-                style={{ maxWidth: 700 }}
+                style={{ maxWidth: 700, paddingLeft:30 }}
             >
                 {steps.map((step, idx) => {
                     const active = idx <= activeStep;
@@ -211,7 +211,7 @@ export default function Pembayaran() {
                 </Col>
 
                 {/* Right card */}
-                <Col md={4} style={{ marginTop: -140 }}>
+                <Col md={4} className="margin-top-custom">
                     <Card style={{ borderRadius: 12, boxShadow: '0 4px 12px rgb(0 0 0 / 0.1)' }}>
                         <Card.Body className="p-4 text-center">
                             {/* Profil Vendor */}
@@ -282,40 +282,40 @@ export default function Pembayaran() {
                                         {paymentDetails.total}
                                     </Col>
                                 </Row>
-                            </div>                            
+                            </div>
+                            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 10 }}>
+                                <div style={{ width: 345, display: 'flex', justifyContent: 'center' }}>
+                                    <Button
+                                        className="w-100 custom-red-button"
+                                        style={{ borderRadius: 12, fontWeight: '600', fontSize: 16 }}
+                                        onClick={() => {
+                                            Swal.fire({
+                                                title: 'Konfirmasi Pembayaran',
+                                                text: `Anda akan membayar sebesar ${paymentDetails.total}. Lanjutkan pembayaran?`,
+                                                icon: 'question',
+                                                showCancelButton: true,
+                                                confirmButtonColor: '#C5203C',
+                                                cancelButtonColor: '#aaa',
+                                                confirmButtonText: 'Ya, bayar sekarang',
+                                                cancelButtonText: 'Batal',
+                                            }).then((result) => {
+                                                if (result.isConfirmed) {
+                                                    Swal.fire({
+                                                        title: 'Pembayaran Berhasil!',
+                                                        text: 'Terima kasih, pembayaran Anda telah diproses.',
+                                                        icon: 'success',
+                                                        confirmButtonColor: '#C5203C',
+                                                    })
+                                                }
+                                            });
+                                        }}
+                                    >
+                                        Bayar Sekarang
+                                    </Button>
+                                </div>
+                            </div>
                         </Card.Body>
                     </Card>
-                    <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop:10 }}>
-                        <div style={{ width: 345, display: 'flex', justifyContent: 'center' }}>
-                            <Button
-                                className="w-100 custom-red-button"
-                                style={{ borderRadius: 12, fontWeight: '600', fontSize: 16 }}
-                                onClick={() => {
-                                    Swal.fire({
-                                        title: 'Konfirmasi Pembayaran',
-                                        text: `Anda akan membayar sebesar ${paymentDetails.total}. Lanjutkan pembayaran?`,
-                                        icon: 'question',
-                                        showCancelButton: true,
-                                        confirmButtonColor: '#C5203C',
-                                        cancelButtonColor: '#aaa',
-                                        confirmButtonText: 'Ya, bayar sekarang',
-                                        cancelButtonText: 'Batal',
-                                    }).then((result) => {
-                                        if (result.isConfirmed) {
-                                            Swal.fire({
-                                                title: 'Pembayaran Berhasil!',
-                                                text: 'Terima kasih, pembayaran Anda telah diproses.',
-                                                icon: 'success',
-                                                confirmButtonColor: '#C5203C',
-                                            })
-                                        }
-                                    });
-                                }}
-                            >
-                                Bayar Sekarang
-                            </Button>
-                        </div>
-                    </div>
                 </Col>
             </Row>
         </Container>

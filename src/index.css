@@ -131,3 +131,14 @@ body, html {
   border: none !important;
   color: #333 !important;
 }
+
+.margin-top-custom {
+    margin-top: -140px;
+}
+
+@media (max-width: 768px) {
+    .margin-top-custom {
+        margin-top: 0px !important;
+    }
+}
+
